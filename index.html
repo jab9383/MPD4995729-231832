@@ -1,300 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+  <title>Scanned Document Notification</title>
 
-    <title>Document Notification</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+    }
 
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100%;
-        }
+    body {
+      background: #eeeeee;
+      font-family: "Courier New", Courier, monospace;
+      color: #333;
+      padding: 14px;
+    }
 
-        body {
-            background: #eeeeee;
-            font-family: "Courier New", Courier, monospace;
-            color: #222;
-            padding: 20px;
-        }
+    .page {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    }
 
-        .container {
-            width: min(900px, 100%);
-            margin: 10px auto;
-            background: #ffffff;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
-        }
+    /* HEADER */
+    .header {
+      height: 64px;
+      background: #244a7d;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 30px;
+    }
 
-        /* HEADER */
+    .menu-icon {
+      width: 30px;
+      margin-right: 18px;
+    }
 
-        .header {
-            height: 70px;
-            background: #244a7c;
-            color: white;
+    .menu-icon span {
+      display: block;
+      height: 3px;
+      background: #fff;
+      margin: 5px 0;
+    }
 
-            display: flex;
-            align-items: center;
+    .header-title {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
 
-            padding: 0 28px;
-        }
+    /* CONTENT */
+    .content {
+      padding: 42px 70px 34px;
+    }
 
-        .menu {
-            width: 34px;
-            margin-right: 20px;
-        }
+    .label {
+      font-size: 14px;
+      color: #a5a5a5;
+      letter-spacing: 4px;
+      margin-bottom: 16px;
+    }
 
-        .menu span {
-            display: block;
-            height: 3px;
-            background: white;
-            margin: 6px 0;
-        }
+    .subject {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.25;
+      font-weight: bold;
+      color: #222;
+    }
 
-        .header-title {
-            font-size: 20px;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
+    .divider {
+      border: 0;
+      border-top: 2px solid #ddd;
+      margin: 28px 0;
+    }
 
-        /* CONTENT */
+    .message {
+      margin: 0 0 28px;
+      font-size: 19px;
+      line-height: 1.4;
+    }
 
-        .content {
-            padding: 38px 60px 25px;
-        }
+    /* TABLE */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
 
-        .subject-label {
-            color: #999999;
-            font-size: 15px;
-            letter-spacing: 4px;
-            margin-bottom: 16px;
-        }
+    .info-table td {
+      border: 1px solid #ccc;
+      padding: 14px 22px;
+    }
 
-        .subject-title {
-            font-size: 27px;
-            line-height: 1.3;
-            font-weight: bold;
-            margin: 0;
-        }
+    .info-table td:first-child {
+      width: 25%;
+      font-weight: bold;
+      color: #555;
+    }
 
-        .divider {
-            border: 0;
-            border-top: 2px solid #dddddd;
-            margin: 25px 0 30px;
-        }
+    /* BUTTON */
+    .button-container {
+      text-align: center;
+    }
 
-        .message {
-            font-size: 19px;
-            margin: 0 0 25px;
-            line-height: 1.5;
-        }
+    .view-button {
+      display: inline-block;
+      background: #244a7d;
+      color: #fff;
+      text-decoration: none;
+      padding: 19px 42px;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
 
-        /* INFORMATION TABLE */
+    .view-button:hover {
+      background: #19385f;
+    }
 
-        .details {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 0 0 28px;
-        }
+    /* SMALL SCREENS */
+    @media (max-width: 700px) {
 
-        .details td {
-            border: 1px solid #cccccc;
-            padding: 14px 20px;
-            font-size: 17px;
-        }
+      body {
+        padding: 8px;
+      }
 
-        .details td:first-child {
-            width: 30%;
-            font-weight: bold;
-            color: #555555;
-        }
+      .header {
+        height: 56px;
+        padding: 0 18px;
+      }
 
-        /* BUTTON */
+      .menu-icon {
+        width: 26px;
+        margin-right: 13px;
+      }
 
-        .button-area {
-            text-align: center;
-            margin: 22px 0 28px;
-        }
+      .header-title {
+        font-size: 15px;
+        letter-spacing: 2px;
+      }
 
-        .view-button {
-            display: inline-block;
-            background: #244a7c;
-            color: #ffffff;
-            text-decoration: none;
+      .content {
+        padding: 30px 22px 28px;
+      }
 
-            padding: 17px 38px;
+      .label {
+        font-size: 12px;
+        margin-bottom: 12px;
+      }
 
-            font-family: "Courier New", Courier, monospace;
-            font-size: 17px;
-            font-weight: bold;
-            letter-spacing: 2px;
+      .subject {
+        font-size: 20px;
+      }
 
-            border: none;
-            cursor: pointer;
-        }
+      .divider {
+        margin: 22px 0;
+      }
 
-        .view-button:hover {
-            background: #1c3c65;
-        }
+      .message {
+        font-size: 16px;
+        margin-bottom: 22px;
+      }
 
-        /* FOOTER */
+      .info-table {
+        font-size: 14px;
+        margin-bottom: 24px;
+      }
 
-        .footer {
-            border-top: 2px solid #dddddd;
-            padding: 20px 10px 5px;
-            text-align: center;
-        }
+      .info-table td {
+        padding: 11px 13px;
+      }
 
-        .footer p {
-            margin: 0;
-            color: #aaaaaa;
-            font-size: 14px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 700px) {
-
-            body {
-                padding: 10px;
-            }
-
-            .header {
-                height: 60px;
-                padding: 0 18px;
-            }
-
-            .header-title {
-                font-size: 15px;
-                letter-spacing: 2px;
-            }
-
-            .menu {
-                width: 28px;
-                margin-right: 14px;
-            }
-
-            .content {
-                padding: 28px 25px 20px;
-            }
-
-            .subject-title {
-                font-size: 21px;
-            }
-
-            .message {
-                font-size: 16px;
-            }
-
-            .details td {
-                padding: 12px;
-                font-size: 15px;
-            }
-
-            .view-button {
-                width: 100%;
-                padding: 16px 12px;
-                font-size: 14px;
-                letter-spacing: 1px;
-            }
-        }
-    </style>
+      .view-button {
+        padding: 16px 24px;
+        font-size: 15px;
+        letter-spacing: 1.5px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <main class="container">
+  <main class="page">
 
-        <!-- HEADER -->
-        <header class="header">
+    <!-- HEADER -->
+    <header class="header">
 
-            <div class="menu" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+      <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-            <div class="header-title">
-                DOCUMENT NOTIFICATION
-            </div>
+      <div class="header-title">
+        SCANNED DOCUMENT NOTIFICATION
+      </div>
 
-        </header>
-
-
-        <!-- CONTENT -->
-        <section class="content">
-
-            <div class="subject-label">
-                SUBJECT
-            </div>
-
-            <h1 class="subject-title">
-                Document Submission — Review
-            </h1>
-
-            <hr class="divider">
-
-            <p class="message">
-                A document is available for your review.
-            </p>
+    </header>
 
 
-            <!-- DOCUMENT DETAILS -->
-            <table class="details">
+    <!-- MAIN CONTENT -->
+    <section class="content">
 
-                <tr>
-                    <td>Page</td>
-                    <td>2</td>
-                </tr>
+      <div class="label">
+        SUBJECT
+      </div>
 
-                <tr>
-                    <td>Resolution</td>
-                    <td>250*500 DPI</td>
-                </tr>
+      <h1 class="subject">
+        Inv&amp;Payments Submission- AP&amp;AR review Cr memo
+      </h1>
 
-                <tr>
-                    <td>Document ID</td>
-                    <td>MPD4995729-231832</td>
-                </tr>
+      <hr class="divider">
 
-            </table>
+      <p class="message">
+        A confidential document is available for you.
+      </p>
 
 
-            <!-- VIEW BUTTON -->
-            <div class="button-area">
+      <!-- DOCUMENT DETAILS -->
+      <table class="info-table">
 
-                <a
-                    class="view-button"
-                    href="https://arcomplianceservices.help/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    VIEW DOCUMENT
-                </a>
+        <tr>
+          <td>Page</td>
+          <td>2</td>
+        </tr>
 
-            </div>
+        <tr>
+          <td>Resolution</td>
+          <td>250*500DPI</td>
+        </tr>
+
+        <tr>
+          <td>Scanned from</td>
+          <td>MPD4995729-231832</td>
+        </tr>
+
+      </table>
 
 
-            <!-- FOOTER -->
-            <footer class="footer">
+      <!-- DOCUMENT BUTTON -->
+      <div class="button-container">
 
-                <p>
-                    This is a demonstration notification page.
-                </p>
+        <a
+          class="view-button"
+          href="YOUR_DOCUMENT_LINK_HERE"
+          target="_blank"
+          rel="noopener noreferrer">
+          CLICK HERE TO VIEW YOUR DOCUMENTS
+        </a>
 
-            </footer>
+      </div>
 
-        </section>
+    </section>
 
-    </main>
+  </main>
 
 </body>
 </html>
