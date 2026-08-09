@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Page</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: #f3f4f6;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+    }
+
+    .document {
+      width: 100%;
+      max-width: 720px;
+      background: #fff;
+      padding: 55px 60px;
+      border: 1px solid #ddd;
+      box-shadow: 0 8px 30px rgba(0,0,0,.08);
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 0 0 35px;
+    }
+
+    p {
+      font-size: 17px;
+      line-height: 1.7;
+      margin: 14px 0;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 22px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 600px) {
+      .document {
+        padding: 35px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="document">
+    <h1>Document Page</h1>
+
+    <p>Your document is available here.</p>
+
+    <p>Page: 2</p>
+
+    <p>Resolution: 250*500DPI</p>
+
+    <p>Scanned from: MPD4995729-231832</p>
+
+    <a
+      class="button"
+      href="https://example.com"
+      target="_blank"
+      rel="noopener noreferrer">
+      View Document
+    </a>
+  </main>
+
+</body>
+</html>
