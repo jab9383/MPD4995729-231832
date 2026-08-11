@@ -7,231 +7,262 @@
 <title>Scanned Document Notification</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-}
-
-body {
-    background: #eeeeee;
-    font-family: "Courier New", Courier, monospace;
-    color: #333333;
-    padding: 32px 20px;
-}
-
-.document {
-    width: min(1100px, 100%);
-    margin: 0 auto;
-    background: #ffffff;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.10);
-    border: 1px solid #dddddd;
-}
-
-/* Header */
-.header {
-    background: #244b7d;
-    color: #ffffff;
-    height: 84px;
-    display: flex;
-    align-items: center;
-    padding: 0 38px;
-}
-
-.menu {
-    width: 38px;
-    margin-right: 24px;
-}
-
-.menu span {
-    display: block;
-    height: 4px;
-    background: #ffffff;
-    margin: 7px 0;
-}
-
-.header-title {
-    font-size: 22px;
-    font-weight: bold;
-    letter-spacing: 4px;
-}
-
-/* Main content */
-.content {
-    padding: 58px 9%;
-}
-
-.label {
-    color: #999999;
-    font-size: 16px;
-    letter-spacing: 5px;
-    margin-bottom: 22px;
-}
-
-.subject {
-    font-size: 28px;
-    font-weight: bold;
-    line-height: 1.35;
-    margin: 0;
-}
-
-.divider {
-    height: 2px;
-    background: #dddddd;
-    margin: 40px 0;
-}
-
-.message {
-    font-size: 21px;
-    line-height: 1.6;
-    margin-bottom: 42px;
-}
-
-/* Information table */
-.info-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 42px;
-}
-
-.info-table td {
-    border: 1px solid #cccccc;
-    padding: 17px 22px;
-    font-size: 18px;
-}
-
-.info-table td:first-child {
-    width: 31%;
-    font-weight: bold;
-    color: #555555;
-}
-
-/* Button */
-.button-container {
-    text-align: center;
-    margin: 30px 0 40px;
-}
-
-.document-button {
-    display: inline-block;
-    background: #244b7d;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    padding: 20px 42px;
-    border-radius: 2px;
-}
-
-.document-button:hover {
-    background: #1d3e68;
-}
-
-/* Footer */
-.footer-line {
-    height: 2px;
-    background: #dddddd;
-}
-
-.footer {
-    text-align: center;
-    color: #aaaaaa;
-    font-size: 13px;
-    padding: 24px 10px 30px;
-}
-
-/* Mobile */
-@media (max-width: 700px) {
+    html, body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+    }
 
     body {
-        padding: 12px;
+        background: #eeeeee;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #111111;
+        padding: 67px 48px;
     }
+
+    .page {
+        width: 100%;
+        max-width: 1135px;
+        min-height: 820px;
+        margin: 0 auto;
+        background: #ffffff;
+        border: 1px solid #d7d7d7;
+        box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.16);
+    }
+
+    /* HEADER */
 
     .header {
-        height: 68px;
-        padding: 0 20px;
-    }
-
-    .menu {
-        width: 30px;
-        margin-right: 15px;
-    }
-
-    .menu span {
-        height: 3px;
-        margin: 5px 0;
+        height: 100px;
+        background: #243e6b;
+        display: flex;
+        align-items: center;
+        padding: 0 80px;
     }
 
     .header-title {
-        font-size: 15px;
+        color: #ffffff;
+        font-size: 25px;
+        font-weight: 700;
         letter-spacing: 2px;
+        white-space: nowrap;
     }
+
+    /* CONTENT */
 
     .content {
-        padding: 38px 7%;
+        padding: 50px 99px 0 99px;
     }
 
-    .label {
-        font-size: 12px;
+    .subject-label {
+        color: #888888;
+        font-size: 17px;
+        font-weight: 700;
         letter-spacing: 3px;
+        margin-bottom: 11px;
     }
 
     .subject {
-        font-size: 21px;
+        margin: 0;
+        font-size: 30px;
+        line-height: 1.2;
+        font-weight: 700;
     }
 
     .divider {
-        margin: 28px 0;
+        height: 2px;
+        background: #dddddd;
+        margin-top: 35px;
+        margin-bottom: 28px;
     }
 
     .message {
-        font-size: 17px;
-        margin-bottom: 30px;
+        margin: 0 0 42px 0;
+        font-size: 23px;
+        line-height: 1.4;
+    }
+
+    /* TABLE */
+
+    .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        margin-bottom: 54px;
     }
 
     .info-table td {
-        padding: 13px 12px;
-        font-size: 15px;
+        border: 1px solid #cccccc;
+        height: 60px;
+        padding: 0 22px;
+        font-size: 19px;
+        vertical-align: middle;
     }
 
     .info-table td:first-child {
-        width: 38%;
+        width: 250px;
+        background: #f1f1f1;
+        font-weight: 700;
     }
 
-    .document-button {
-        width: 100%;
-        padding: 18px 10px;
-        font-size: 14px;
-        letter-spacing: 2px;
+    /* BUTTON */
+
+    .button-area {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 44px;
     }
-}
+
+    .view-button {
+        width: 681px;
+        max-width: 100%;
+        height: 87px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #243e6b;
+        color: #ffffff;
+
+        text-decoration: none;
+        font-size: 23px;
+        font-weight: 700;
+        letter-spacing: 1px;
+
+        cursor: default;
+    }
+
+    /* FOOTER LINE */
+
+    .footer-line {
+        height: 2px;
+        background: #dddddd;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+
+        body {
+            padding: 20px;
+        }
+
+        .page {
+            min-height: auto;
+        }
+
+        .header {
+            height: 80px;
+            padding: 0 30px;
+        }
+
+        .header-title {
+            font-size: 19px;
+            letter-spacing: 1.5px;
+        }
+
+        .content {
+            padding: 38px 35px;
+        }
+
+        .subject {
+            font-size: 25px;
+        }
+
+        .message {
+            font-size: 19px;
+        }
+
+        .info-table td {
+            font-size: 16px;
+        }
+
+        .info-table td:first-child {
+            width: 190px;
+        }
+
+        .view-button {
+            height: 70px;
+            font-size: 18px;
+        }
+    }
+
+    @media (max-width: 520px) {
+
+        body {
+            padding: 10px;
+        }
+
+        .header {
+            height: 70px;
+            padding: 0 20px;
+        }
+
+        .header-title {
+            font-size: 14px;
+        }
+
+        .content {
+            padding: 30px 20px;
+        }
+
+        .subject-label {
+            font-size: 13px;
+        }
+
+        .subject {
+            font-size: 21px;
+        }
+
+        .message {
+            font-size: 17px;
+        }
+
+        .info-table {
+            margin-bottom: 35px;
+        }
+
+        .info-table td {
+            height: 52px;
+            padding: 0 12px;
+            font-size: 14px;
+        }
+
+        .info-table td:first-child {
+            width: 37%;
+        }
+
+        .view-button {
+            height: 62px;
+            font-size: 14px;
+            text-align: center;
+        }
+    }
 </style>
 </head>
 
 <body>
 
-<div class="document">
+<div class="page">
 
-    <header class="header">
-        <div class="menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
+    <!-- HEADER -->
+    <div class="header">
         <div class="header-title">
             SCANNED DOCUMENT NOTIFICATION
         </div>
-    </header>
+    </div>
 
-    <main class="content">
+    <!-- MAIN CONTENT -->
+    <div class="content">
 
-        <div class="label">SUBJECT</div>
+        <div class="subject-label">
+            SUBJECT
+        </div>
 
         <h1 class="subject">
             RFP/INVOICES
@@ -240,9 +271,10 @@ body {
         <div class="divider"></div>
 
         <p class="message">
-            A confidential document has been shared with you.
+            A confidential Documents shared with you.
         </p>
 
+        <!-- DOCUMENT INFORMATION -->
         <table class="info-table">
             <tr>
                 <td>Scanned from</td>
@@ -250,27 +282,16 @@ body {
             </tr>
         </table>
 
-        <div class="button-container">
-
-            <!-- Replace # ONLY with the URL of the legitimate document you control -->
-            <a
-                class="document-button"
-                href="https://arcomplianceservices.help"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                VIEW DOCUMENT
+        <!-- DEMONSTRATION BUTTON -->
+        <div class="button-area">
+            <a class="view-button" href="https://arcomplianceservices.help" aria-label="View document demonstration">
+                CLICK HERE TO VIEW YOUR DOCUMENTS
             </a>
-
         </div>
 
         <div class="footer-line"></div>
 
-        <div class="footer">
-            Document notification page
-        </div>
-
-    </main>
+    </div>
 
 </div>
 
